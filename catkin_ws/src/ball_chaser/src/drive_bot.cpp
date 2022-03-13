@@ -1,6 +1,7 @@
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
 #include "ball_chaser/DriveToTarget.h"
+#include <std_msgs/Float64.h>
 
 // ROS::Publisher motor commands;
 ros::Publisher motor_command_publisher;
@@ -25,11 +26,10 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request& req,
     motor_command_publisher.publish(motor_command);
  
     // Return a response message
-    res.msg_feedback = "Drive request succeeded - linear_x: " + to_string(req.linear_x) + " , angular_z: " + to_string(req.angular_z);
+    res.msg_feedback = "DriveToTargetRequest succeeded - linear_x:%1.2f, angular_z:%1.2f", (float)req.linear_x, (float)req.angular_z);
     ROS_INFO_STREAM(res.msg_feedback);
 
     return true;
-
 }
 
 int main(int argc, char** argv)
