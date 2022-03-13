@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/workspace/project1
 CMAKE_BINARY_DIR = /home/workspace/project1/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/hello.dir
+# Target rules for target CMakeFiles/welcome.dir
 
 # All Build rule for target.
-CMakeFiles/hello.dir/all:
-	$(MAKE) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/depend
-	$(MAKE) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/workspace/project1/build/CMakeFiles --progress-num=1,2 "Built target hello"
-.PHONY : CMakeFiles/hello.dir/all
+CMakeFiles/welcome.dir/all:
+	$(MAKE) -f CMakeFiles/welcome.dir/build.make CMakeFiles/welcome.dir/depend
+	$(MAKE) -f CMakeFiles/welcome.dir/build.make CMakeFiles/welcome.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/workspace/project1/build/CMakeFiles --progress-num=1,2 "Built target welcome"
+.PHONY : CMakeFiles/welcome.dir/all
 
 # Include target in all.
-all: CMakeFiles/hello.dir/all
+all: CMakeFiles/welcome.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/hello.dir/rule: cmake_check_build_system
+CMakeFiles/welcome.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/workspace/project1/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/hello.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/welcome.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/workspace/project1/build/CMakeFiles 0
-.PHONY : CMakeFiles/hello.dir/rule
+.PHONY : CMakeFiles/welcome.dir/rule
 
 # Convenience name for target.
-hello: CMakeFiles/hello.dir/rule
+welcome: CMakeFiles/welcome.dir/rule
 
-.PHONY : hello
-
-# clean rule for target.
-CMakeFiles/hello.dir/clean:
-	$(MAKE) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/clean
-.PHONY : CMakeFiles/hello.dir/clean
+.PHONY : welcome
 
 # clean rule for target.
-clean: CMakeFiles/hello.dir/clean
+CMakeFiles/welcome.dir/clean:
+	$(MAKE) -f CMakeFiles/welcome.dir/build.make CMakeFiles/welcome.dir/clean
+.PHONY : CMakeFiles/welcome.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/welcome.dir/clean
 
 .PHONY : clean
 

@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named hello
+# Target rules for targets named welcome
 
 # Build rule for target.
-hello: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hello
-.PHONY : hello
+welcome: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 welcome
+.PHONY : welcome
 
 # fast build rule for target.
-hello/fast:
-	$(MAKE) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/build
-.PHONY : hello/fast
+welcome/fast:
+	$(MAKE) -f CMakeFiles/welcome.dir/build.make CMakeFiles/welcome.dir/build
+.PHONY : welcome/fast
 
 script/welcome_message.o: script/welcome_message.cpp.o
 
@@ -129,7 +129,7 @@ script/welcome_message.o: script/welcome_message.cpp.o
 
 # target to build an object file
 script/welcome_message.cpp.o:
-	$(MAKE) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/script/welcome_message.cpp.o
+	$(MAKE) -f CMakeFiles/welcome.dir/build.make CMakeFiles/welcome.dir/script/welcome_message.cpp.o
 .PHONY : script/welcome_message.cpp.o
 
 script/welcome_message.i: script/welcome_message.cpp.i
@@ -138,7 +138,7 @@ script/welcome_message.i: script/welcome_message.cpp.i
 
 # target to preprocess a source file
 script/welcome_message.cpp.i:
-	$(MAKE) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/script/welcome_message.cpp.i
+	$(MAKE) -f CMakeFiles/welcome.dir/build.make CMakeFiles/welcome.dir/script/welcome_message.cpp.i
 .PHONY : script/welcome_message.cpp.i
 
 script/welcome_message.s: script/welcome_message.cpp.s
@@ -147,7 +147,7 @@ script/welcome_message.s: script/welcome_message.cpp.s
 
 # target to generate assembly for a file
 script/welcome_message.cpp.s:
-	$(MAKE) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/script/welcome_message.cpp.s
+	$(MAKE) -f CMakeFiles/welcome.dir/build.make CMakeFiles/welcome.dir/script/welcome_message.cpp.s
 .PHONY : script/welcome_message.cpp.s
 
 # Help Target
@@ -157,7 +157,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... hello"
+	@echo "... welcome"
 	@echo "... rebuild_cache"
 	@echo "... script/welcome_message.o"
 	@echo "... script/welcome_message.i"
