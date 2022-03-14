@@ -24,9 +24,7 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request& req,
     // Publish angles to drive the robot
     motor_command_publisher.publish(motor_command);
  
-    // Return a response message
-    res.msg_feedback = "DriveToTargetRequest succeeded - linear_x:%1.2f, angular_z:%1.2f", (float)req.linear_x, (float)req.angular_z;
-    ROS_INFO_STREAM(res.msg_feedback);
+    ROS_INFO_STREAM("DriveToTargetRequest succeeded - linear_x:" << (float)req.linear_x << " angular_z:" << (float)req.angular_z);
 
     return true;
 }
