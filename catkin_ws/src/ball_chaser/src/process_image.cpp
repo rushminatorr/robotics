@@ -37,6 +37,12 @@ void process_image_callback(const sensor_msgs::Image img)
             }
         }
     }
+
+    int image_height = pixel_location/img.height;
+    int image_step = pixel_location/img.step;
+    ROS_INFO("Pixel Located %d", pixel_location);
+    ROS_INFO("Pixel image height %d", image_height);
+    ROS_INFO("Pixel step %d", image_step);
     
     // Request a stop when there's no white ball seen by the camera
     if (found_white_pixel == false) {
@@ -44,10 +50,10 @@ void process_image_callback(const sensor_msgs::Image img)
     } else {
         // Then, identify if this pixel falls in the left, mid, or right side of the image
         // Depending on the white ball position, call the drive_bot function and pass velocities to it
-        if(pixel_location < image_raw_length/3){
+        if(pixel_location/img.step < img.height/3){
             ROS_INFO("Turning left");
             drive_robot(0.0f, 0.5f);
-        } else if (pixel_location > 2*(image_raw_length/3)){
+        } else if (pixel_location/img.step > 2*(img.height/3)){
             ROS_INFO("Turning right");
             drive_robot(0.0f, -0.5f);
         } else {
