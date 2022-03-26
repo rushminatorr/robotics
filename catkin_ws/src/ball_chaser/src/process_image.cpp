@@ -26,7 +26,7 @@ void process_image_callback(const sensor_msgs::Image img)
     int pixel_location = 0;
     int image_raw_length = img.height * img.step;
     // Loop through each pixel in the image and check if there's a bright white one
-    for (int i = 0; i < image_raw_length; i+=3) {
+    for (int i = 1; i < image_raw_length; i+=3) {
         if (img.data[i] == 255) {
             if (img.data[i+1] == 255) {
                 if (img.data[i+2] == 255) {
@@ -38,28 +38,35 @@ void process_image_callback(const sensor_msgs::Image img)
         }
     }
 
-    int image_height = pixel_location/img.height;
-    int image_step = pixel_location/img.step;
+    int array_pos = pixel_location/3;
+    int array_place = 0;
     ROS_INFO("Pixel Located %d", pixel_location);
-    ROS_INFO("Pixel image height %d", image_height);
-    ROS_INFO("Pixel step %d", image_step);
     
     // Request a stop when there's no white ball seen by the camera
     if (found_white_pixel == false) {
         drive_robot(0.0f, 0.0f);
     } else {
+        for (int i = 1; i <= img.height; i++) {
+            for (int j = 1; j <= img.width; j++) {
+                array_place++;
+                if (array_place == array_pos) {
+                    int locate_position = j;
+                    if(locate_position < img.width/3){
+                        ROS_INFO("Turning left");
+                        drive_robot(0.0f, 0.5f);
+                    } else if (locate_position > 2*(img.width/3)){
+                        ROS_INFO("Turning right");
+                        drive_robot(0.0f, -0.5f);
+                    } else {
+                        ROS_INFO("Moving Forward");
+                        drive_robot(0.5f, 0.0f);
+                    }
+                }
+            }
+        }
         // Then, identify if this pixel falls in the left, mid, or right side of the image
         // Depending on the white ball position, call the drive_bot function and pass velocities to it
-        if(pixel_location/img.step < img.height/3){
-            ROS_INFO("Turning left");
-            drive_robot(0.0f, 0.5f);
-        } else if (pixel_location/img.step > 2*(img.height/3)){
-            ROS_INFO("Turning right");
-            drive_robot(0.0f, -0.5f);
-        } else {
-            ROS_INFO("Moving Forward");
-            drive_robot(0.5f, 0.0f);
-        }
+        
     }
 }
 
