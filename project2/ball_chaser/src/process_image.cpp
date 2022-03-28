@@ -53,10 +53,10 @@ void process_image_callback(const sensor_msgs::Image img)
                     int locate_position = j;
                     if(locate_position < img.width/3){
                         ROS_INFO("Turning left");
-                        drive_robot(0.0f, 0.5f);
+                        drive_robot(0.2f, 0.3f);
                     } else if (locate_position > 2*(img.width/3)){
                         ROS_INFO("Turning right");
-                        drive_robot(0.0f, -0.5f);
+                        drive_robot(0.2f, -0.3f);
                     } else {
                         ROS_INFO("Moving Forward");
                         drive_robot(0.5f, 0.0f);
